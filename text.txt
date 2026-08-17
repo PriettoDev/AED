@@ -1,0 +1,28 @@
+---------------------------------------- AULA 07 ----------------------------------------
+Tipo abstrato de dados (TAD) é um tipo de dado que eu crio pois o C não fornece, ele não é um dado primitivo (int, float, etc...), mas algo que eu crio para representar varios membros sob um mesmo objeto. - Struct é um TAD
+
+-> Composto por varios tipos abstratos de variaveis.
+Estrutura de dados é por si, a implementação do TAD (tipo abstrato de dados)
+
+Tipo estruturado (struct), é um tipo de dados definido, que agrupa vários campos (membros), que eu preciso, de tipos possivelmente diferentes sob um mesmo “objeto”.
+
+struct é um templete generico global.
+
+A implementação da struct:
+
+struct tp_data{
+    int dia, mes, ano;
+}
+
+struct tp_pessoa{
+    char nome[30];
+    float salario;
+    struct tp_data dt_nasc;
+}
+
+int main(){
+    struct tp_pessoa p;
+}
+
+Toda vez que se passa uma struct como parametro para uma função, ocorre uma psssagem do tipo COPIA.
+Ou seja, ao se passar a struct 'tp_pessoa' como um parametro para uma função, vai ocorrer uma copia dessa struck, assim todas as alterações feita na struct dentro da função serão feitas na copia. Para essas alterações voltarem para a struct original, é necessario usar o return para a struct no final da função.
