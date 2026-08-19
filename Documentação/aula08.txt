@@ -1,0 +1,25 @@
+------------------------------------------------Questão1------------------------------------------------
+A aula começa com uma questão de ponteiros
+
+main
+introduz a como 10 e b como 30
+introduz o ponteiro "*p" que salva o endereço de memoria de a (&a)
+introduz o ponteiro "*q" que salva o endereço de memoria de b (&b)
+roda a função trocando o valor de a por b, e b por Amuda o valor guardado pelo ponteiro q para ser a soma do valor q + parafaz o valor do ponteiro "*p" ser igual ao valor do valor do ponteiro "*q" + 1
+printa o valor de a e de b
+
+a=10
+b=30
+p->A
+q->b
+
+func
+a=30
+b=10
+
+b=10+30
+a=40+1
+
+------------------------------------------------Questão2------------------------------------------------
+
+------------------------------------------------Pilha----------------------------------------------------
