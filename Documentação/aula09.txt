@@ -1,0 +1,3 @@
+pop --> retorna o valor do topo da pilha desempilhando
+top --> retorna o valor do topo da pilha sem desempilhar
+push --> empilha um elemento na pilha
