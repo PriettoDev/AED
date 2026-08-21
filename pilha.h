@@ -42,5 +42,11 @@ int pop(tp_pilha *p, tp_item *e){
     return 1;
 }
 
+int top(tp_pilha *p, tp_item *e){
+    if(pilhaVazia(p)) return 0;
+    *e=p->item[p->topo];
+    return 1;
+}
+
 
 #endif
