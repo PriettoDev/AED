@@ -28,7 +28,12 @@ int pilhaCheia(tp_pilha *p){
     }
 }
 
-
+int push(tp_pilha *p, tp_item e){
+    if (pilhaCheia(p)==1) return 0;
+    p->topo++;
+    p->item[p->topo]=e;
+    return 1;
+}
 
 
 #endif
