@@ -35,5 +35,12 @@ int push(tp_pilha *p, tp_item e){
     return 1;
 }
 
+int pop(tp_pilha *p, tp_item *e){
+    if (pilhaVazia(p)) return 0;
+    *e=p->item[p->topo];
+    p->topo--;
+    return 1;
+}
+
 
 #endif
