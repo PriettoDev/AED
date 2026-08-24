@@ -48,5 +48,17 @@ int top(tp_pilha *p, tp_item *e){
     return 1;
 }
 
+void imprimePilha(tp_pilha p){
+    tp_item e;
+    printf("\n");
+    while(!pilhaVazia(&p)){
+        pop(&p, &e);
+        printf("%d", e);
+    }
+}
+
+int alturaPilha(tp_pilha *p){
+    return p->topo+1;
+}
 
 #endif
