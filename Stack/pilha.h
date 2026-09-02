@@ -28,14 +28,14 @@ int pilhaCheia(tp_pilha *p){
     }
 }
 
-int push(tp_pilha *p, tp_item e){
+int push(tp_pilha *p, tp_item e){ //No push o segundo parametro em uma remoção(push) NUNCA leva &.
     if (pilhaCheia(p)==1) return 0;
     p->topo++;
     p->item[p->topo]=e;
     return 1;
 }
 
-int pop(tp_pilha *p, tp_item *e){
+int pop(tp_pilha *p, tp_item *e){ //No pop o segundo parametro em uma adição(pop) SEMPRE leva &.
     if (pilhaVazia(p)) return 0;
     *e=p->item[p->topo];
     p->topo--;

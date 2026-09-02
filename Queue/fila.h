@@ -35,7 +35,7 @@ int filaCheia(tp_fila *f){
     return 0;
 }
 
-int insereFila(tp_fila *f, tp_item e){
+int insereFila(tp_fila *f, tp_item e){ //O segundo parametro em uma adição da fila NUNCA leva &.
     if(filaCheia(f)){
         return 0; //Não foi possivel adicionar a fila
     }
@@ -46,7 +46,7 @@ int insereFila(tp_fila *f, tp_item e){
     return 1;
 }
 
-int removeFila(tp_fila *f, tp_item *e){
+int removeFila(tp_fila *f, tp_item *e){ //O segundo parametro em uma remoção da fila SEMPRE leva &.
     if(filaVazia(f)){
         return 0; //Não foi possivel remover da fila
     }
