@@ -17,7 +17,6 @@ void removeImpares(tp_pilha *p1){
         pop(&p2, &e);
         push(p1, e);
     }
-
 }
 
 int main(){
