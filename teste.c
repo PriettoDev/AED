@@ -4,7 +4,10 @@
 int main(){
     tp_listase *lista;
     lista = NULL;
-    lista = inicializa_lista();
-    if(listase_vazia(lista) == 1)
-        printf("vazia");
+    lista=inicializa_listase();
+    insere_listase_no_fim(&lista, 10);
+    insere_listase_no_fim(&lista, 20);
+    insere_listase_no_fim(&lista, 30);
+    imprime_listase(lista);
+
 }
