@@ -34,21 +34,32 @@ tp_listase *aloca_listase(){ // ela irá alocar um espaço na memoria do tamanho
 int insere_listase_no_fim(tp_listase **l, tp_item e){
     tp_listase *novo_no, *atu;
     novo_no = aloca_listase(); // aqui está pegando o novo nó e apontando ...(?)
-    if(novo_no==NULL) return 0; //não alocou memória
+    if(novo_no == NULL) return 0; // não alocou memória
     // atribuir os valores para o novo nó;
-    novo_no -> info=e;
-    novo_no -> prox=NULL;
-    //finaliza o encadeamento do nó
-    if(listase_vazia(l)){//se for o primeiro nó entra aqui
-        l=novo_no;    
+    novo_no -> info = e;
+    novo_no -> prox = NULL;
+    // finaliza o encadeamento do nó
+    if(listase_vazia(*l)){ // se for o primeiro nó entra aqui
+        *l = novo_no;    
     } else {
-        atu = l;
-        while(atu->prox!=NULL){
+        atu = *l;
+        while(atu->prox != NULL){
             atu=atu->prox; // aponta para o ultimo nó
         }
-        atu->prox=novo_no;
+        atu -> prox = novo_no;
     }
     return 1;
+}
+
+
+
+void imprime_listase(tp_listase *lista){
+    tp_listase *atu;
+    atu=lista;
+    while(atu!=NULL){
+        printf("%d\n", atu->info);
+        atu=atu->prox;
+    }
 }
 
 
