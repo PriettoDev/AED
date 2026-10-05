@@ -33,7 +33,7 @@ tp_listase *aloca_listase(){ // ela irá alocar um espaço na memoria do tamanho
 
 int insere_listase_no_fim(tp_listase **l, tp_item e){
     tp_listase *novo_no, *atu;
-    novo_no = aloca_listase(); // aqui está pegando o novo nó e apontando ...(?)
+    novo_no = aloca_listase(); // aqui está pegando o novo nó e apontando para o NULL
     if(novo_no == NULL) return 0; // não alocou memória
     // atribuir os valores para o novo nó;
     novo_no -> info = e;
@@ -57,11 +57,79 @@ void imprime_listase(tp_listase *lista){
     tp_listase *atu;
     atu=lista;
     while(atu!=NULL){
-        printf("%d\n", atu->info);
-        atu=atu->prox;
+        printf("%d\n", atu -> info);
+        atu = atu -> prox;
     }
 }
 
 
+int remove_listase(tp_listase **lista, tp_item e){
+    tp_listase * ant, *atu;
+    atu=*lista;
+    ant=NULL;
+    while((atu!=NULL) && (atu -> info!=e)){
+        ant=atu;
+        atu=atu->prox;
+    }
+
+    if(atu==NULL) return 0; //não foi encontrado o elemento
+    if(ant==NULL){ //se for retirado o primeiro termo
+        *lista=atu->prox; // fazendo a lista apontar para o termo subsequente que foi retirado
+
+    }
+    else{
+        ant->prox=atu->prox; //fazendo a interligação entre o termo anterior e o termo subsequente ao termo retirado
+
+    }
+    free(atu);
+    atu=NULL;
+    return 1;
+}
+
+
+
+tp_listase *busca_listase(tp_listase *lista, 
+                                    tp_item e){
+    tp_listase *atu;
+    atu=lista;
+    while((atu!=NULL)&&(atu->info!=e)){
+        atu=atu->prox;
+    }
+    if (atu==NULL) return NULL; //trecho redundante, pode comentar está linha que não irá alterar o codigo, foi feito para ser mais didatico está etapa.
+    return atu;
+}
+
+
+int tamanho_listase(tp_listase *lista){
+    int cont = 0;
+    tp_listase *atu;
+    atu=lista;
+    while (atu!=NULL){
+        cont++;
+        atu=atu->prox;
+    }
+    return cont;    
+}
+
+
+void destroi_listase(tp_listase **l){
+    tp_listase *atu;
+    atu=*l;
+    while(atu!=NULL){
+        *l=atu->prox;
+        free(atu);
+        atu=*l;
+    }
+    *l=NULL;
+}
+
+    void insere_listase_no_inicio(tp_listase **l, tp_item e){
+        tp_listase *novo_no, *atu;
+        novo_no = aloca_listase();
+        if(novo_no==NULL){
+            return 0;
+        }
+        //tenho que criar a função que insere no inicio da lista um valor.
+    }
 
 #endif
