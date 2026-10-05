@@ -1,6 +1,6 @@
 #ifndef LISTASE_H
 #define LISTASE_H
-
+// header file de lista simplesmente encadeada
 #include <stdio.h>
 #include <stdlib.h>
 
