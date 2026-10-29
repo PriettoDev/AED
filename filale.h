@@ -6,18 +6,18 @@
 
 typedef int tp_item;
 
-typedef struct tp_no_aux {
+typedef struct tp_no_fila_aux {
 	tp_item info;
-	struct tp_no_aux *prox;
-} tp_no;
+	struct tp_no_fila_aux *prox;
+} tp_no_fila;
 
 
 typedef struct{
-	tp_no *ini, *fim;
+	tp_no_fila *ini, *fim;
 } tp_fila;
 
 //declaração de funcao
-tp_no *aloca();
+tp_no_fila *aloca_fila();
 int removeFila(tp_fila *fila, tp_item *e);
 int insereFila(tp_fila *fila, tp_item e);
 int filaVazia(tp_fila *fila);
@@ -30,7 +30,7 @@ tp_fila *inicializaFila(){
 	return fila;
 }
 tp_fila *destroiFila(tp_fila *fila){
-	tp_no *atu = fila->ini, *aux;
+	tp_no_fila *atu = fila->ini, *aux;
 	tp_item e;
 
 	while (atu != NULL){
@@ -46,9 +46,9 @@ tp_fila *destroiFila(tp_fila *fila){
 	return NULL;
 }
 
-tp_no *aloca(){
-	tp_no* pt;
-	pt = (tp_no*) malloc(sizeof(tp_no));
+tp_no_fila *aloca_fila(){
+	tp_no_fila* pt;
+	pt = (tp_no_fila*) malloc(sizeof(tp_no_fila));
 	return pt;
 }
 
@@ -57,9 +57,9 @@ int filaVazia(tp_fila *fila){
 	return 0;
 }
 int insereFila(tp_fila *fila, tp_item e){
-	tp_no *novo;
+	tp_no_fila *novo;
 	
-	novo = aloca();
+	novo = aloca_fila();
 	
 	if (!novo) return 0;
 
@@ -77,7 +77,7 @@ int insereFila(tp_fila *fila, tp_item e){
 	return 1;
 }
 int removeFila(tp_fila *fila, tp_item *e){
-	tp_no *aux;
+	tp_no_fila *aux;
 	
 	if (filaVazia(fila)) return 0;
 	

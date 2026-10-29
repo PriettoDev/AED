@@ -6,14 +6,14 @@
 
 typedef int tp_item; 
 
-typedef struct tp_no_aux {   
+typedef struct tp_no_pilha_aux {   
   tp_item info;   
-  struct tp_no_aux *prox;   
-} tp_no; 
+  struct tp_no_pilha_aux *prox;   
+} tp_no_pilha; 
 
 
 typedef struct {   
-  tp_no *topo;   
+  tp_no_pilha *topo;   
 } tp_pilha;
 
 
@@ -28,15 +28,15 @@ int pilha_vazia (tp_pilha *pilha){
  return 0;
 }
 
-tp_no *aloca() {
-	tp_no* pt;
-	pt=(tp_no*) malloc(sizeof(tp_no));
+tp_no_pilha *aloca_pilha() {
+	tp_no_pilha* pt;
+	pt=(tp_no_pilha*) malloc(sizeof(tp_no_pilha));
 	return pt;
 }
 
 int push (tp_pilha *pilha, tp_item e){   
-  tp_no *novo;   
-  novo=aloca();
+  tp_no_pilha *novo;   
+  novo=aloca_pilha();
   if (!novo) return 0;
 
   novo->info = e;  
@@ -52,7 +52,7 @@ int push (tp_pilha *pilha, tp_item e){
 
 
 int pop (tp_pilha *pilha, tp_item *e){   
-  tp_no *aux;
+  tp_no_pilha *aux;
 
   if (pilha_vazia(pilha)) return 0;
   *e=pilha->topo->info;
@@ -64,7 +64,7 @@ int pop (tp_pilha *pilha, tp_item *e){
 }        
 
 int top (tp_pilha *pilha, tp_item *e){   
-  tp_no *aux;
+  tp_no_pilha *aux;
 
   if (pilha_vazia(pilha)) return 0;
   *e=pilha->topo->info;
@@ -74,7 +74,7 @@ int top (tp_pilha *pilha, tp_item *e){
 
 
 tp_pilha *destroi_pilha(tp_pilha *pilha) {    
-	 tp_no *atu=pilha->topo, *aux;
+	 tp_no_pilha *atu=pilha->topo, *aux;
      tp_item e;
 	 while (atu != NULL)
 	       {
