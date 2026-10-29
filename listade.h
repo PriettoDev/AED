@@ -3,71 +3,71 @@
 //dinamicamente e possui 2 (ou 3) membros. Um ponteiro (*ini) que vai apontar para o 1o nó (tp_no) da lista, 
 //outro ponteiro (*fim) que vai apontar para o último nó da lista e, opcionalmente, o tamanho da lista (tamanho)
 
-//É importante difernciar as estruturas nesta biblioteca. Temos dois dados estruturados: a descritor e o nó da lista#ifndef LISTADE_H
-//header file de lista duplamente encadeada
+//É importante difernciar as estruturas nesta biblioteca. Temos dois dados estruturados: a descritor e o nó da lista
+
 #ifndef LISTADE_H
 #define LISTADE_H
 #include <stdio.h>
-#include  <stdlib.h>
-
-typedef int tp_item;
-//dados estruturados que representam o descritor
-typedef struct tp_no_aux{
-    struct tp_no_aux *ant;
-    tp_item info;
-    struct tp_no_aux *prox;
-} tp_no;
-
+#include <stdlib.h>
+typedef int tp_item; 
+//dados estruturado que representa o descritor
+typedef struct tp_no_aux {   
+  struct tp_no_aux *ant;  
+  tp_item info;  
+  struct tp_no_aux *prox;   
+} tp_no; 
 //dado estruturado que representa o nó da lista
-typedef struct{
-    tp_no *ini;
-    tp_no *fim;
-    // int tamanho;
+typedef struct {   
+  tp_no *ini;   
+  tp_no *fim;   
+//  int tamanho;   
 } tp_listad;
 
-//aloca-se memória para o descritor (explicado no inicio deste arquivo) e fazz o seus ponteiros apontarem para o Nulo
+//aloca-se memória para o descritor (explicado no ínicio deste arquivo) e 
+//faz o seus ponteiros apontarem para o Nulo
 tp_listad *inicializa_listad(){
-    tp_listad *lista=(tp_listad*) malloc(sizeof(tp_listad));
-    lista->ini=NULL;
-    lista->fim=NULL;
-    // lista->tamanho=0;
-    return lista;
+   tp_listad *lista=(tp_listad*) malloc(sizeof(tp_listad));   
+   lista->ini = NULL;   
+   lista->fim = NULL;   
+ // lista->tamanho = 0;   
+   return lista;
+}  
+
+
+int listad_vazia(tp_listad *lista) {
+	if ( (lista->ini == NULL) ) 
+		return 1;
+	return 0;	
 }
 
-int listad_vazia(tp_listad *lista){
-    if((lista->ini==NULL))
-        return 1;
-    return 0;
-}
-
-//aloca um nó da lista
-tp_no *aloca(){
-    tp_no *pt;
-    pt=(tp_no*) malloc(sizeof(tp_no));
-    return pt;
+//Aloca um nó da lista
+tp_no *aloca() {
+	tp_no* pt;
+	pt=(tp_no*) malloc(sizeof(tp_no));
+	return pt;
 }
 
 //insere um novo nó na lista
-int insere_listad_no_fim(tp_listad *lista, tp_item e){
-    tp_no *novo;
-    novo=aloca();
-    if(!novo) return 0;
-    novo->info = e;
-    if(listad_vazia(lista)){ //se for o primeiro elemento da lista
-        novo->prox = NULL;
-        novo->ant = NULL;
-        lista->ini = lista->fim = novo;
-    } else{
-        novo->prox = NULL;
-        novo->ant = lista->fim;
-        lista->fim->prox = novo;
-        lista->fim = novo;
-    }
-    //lista->tamanho++;
-    return 1;
-}
+int insere_listad_no_fim (tp_listad *lista, tp_item e){   
+  tp_no *novo;   
+  novo=aloca();
+  if (!novo) return 0;
+  novo->info = e; 
+  novo->prox = NULL;   
+  if ( listad_vazia(lista) ){ //Se for o primeiro elemento da lista
+      novo->ant = NULL; 
+     lista->ini = lista->fim = novo;
+     }  
+  else {  
+     novo->ant = lista->fim; 
+     lista->fim->prox = novo;
+     lista->fim = novo;
+     }  
+  //lista->tamanho++;   
+  return 1;   
+}        
 
-//imprime os conteúdos da lista (de frente para trás ou de trás para frente)
+//imprime os conteúdos da lista (de frente para trás ou de trás pra frente)
 void imprime_listad(tp_listad *lista, int ordem) {
 	if (lista==NULL)
 		printf("Lista não inicializada");
@@ -86,7 +86,7 @@ void imprime_listad(tp_listad *lista, int ordem) {
                    atu=atu->ant;           
                    }
                 break;   
-        default: printf("codigo invalido");        
+        default: printf("codigo invalido");      
      }
 	}
      printf("\n");
