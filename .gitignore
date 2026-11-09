@@ -1,4 +1,4 @@
-# Executáveis gerados pela compilação (Windows/GCC)
+# Executáveis e objetos gerados pela compilação (Windows/GCC)
 *.exe
 *.out
 *.o
@@ -8,9 +8,16 @@
 output/
 **/output/
 
-# Arquivos temporários comuns de editores/SO
+# Arquivos gerados pelo Dev-C++ / Embarcadero
+*.layout
+Makefile.win
+
+# Arquivos temporários de editores e do sistema operacional
 *.tmp
+*~
 Thumbs.db
+desktop.ini
+.DS_Store
 
 # Configurações locais do VS Code (específicas de cada máquina)
 .vscode/

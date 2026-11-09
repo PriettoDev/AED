@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../listase.h"
-#include "../listade.h"
-#include "../pilhale.h"
-#include "../filale.h"
+#include "../../04_dynamic_linear_structures/singly_linked_list/listase.h"
+#include "../../04_dynamic_linear_structures/doubly_linked_list/listade.h"
+#include "../../04_dynamic_linear_structures/linked_stack/pilhale.h"
+#include "../../04_dynamic_linear_structures/linked_queue/filale.h"
  
 void imprime_virgula(tp_listase *l){
 	tp_listase *atu = l;
